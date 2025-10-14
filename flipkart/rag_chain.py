@@ -16,7 +16,7 @@ class RagChainBuilder:
 
     def __get_history(self,session_id: str) -> BaseChatMessageHistory:
         if session_id not in self.history_store:
-            self.history_store[session_id] = ChatMessageHistory
+            self.history_store[session_id] = ChatMessageHistory()
         return self.history_store[session_id]
 
     def build_chain(self):
