@@ -1,7 +1,7 @@
 from flask import render_template,Flask,request,Response
 from prometheus_client import Counter, generate_latest
 from flipkart.data_ingestion import DataIngestor
-from flipkart.rag_chain import RagChainBuilder
+from flipkart.rag_chain import RAGChainBuilder
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -13,7 +13,7 @@ def create_app():
     app = Flask(__name__)
 
     vector_store = DataIngestor().ingest(load_existing=True)
-    rag_chain = RagChainBuilder(vector_store).build_chain()
+    rag_chain = RAGChainBuilder(vector_store).build_chain()
 
     @app.route("/")
     def index():
