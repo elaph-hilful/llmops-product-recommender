@@ -4,6 +4,7 @@ langchain-astradb
 langchain-huggingface
 langchain-groq
 langchain-community
+langchain-text-splitters
 datasets
 pypdf
 python-dotenv
