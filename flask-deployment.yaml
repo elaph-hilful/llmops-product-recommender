@@ -4,7 +4,7 @@ metadata:
   name: flask-app
   labels:
     app: flask
-  spec:
+spec:
   replicas: 1
   selector:
     matchLabels:
@@ -19,17 +19,15 @@ metadata:
         image: flask-app:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 5000
+          - containerPort: 5000
         envFrom:
-        - secretRef:
-            name: flask-env-secret
-
+          - secretRef:
+              name: flask-env-secret
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-Service
+  name: flask-service
 spec:
   type: LoadBalancer
   selector:
@@ -38,3 +36,8 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 5000
+
+
+
+
+
